@@ -5,6 +5,14 @@ const { expressMiddleware } = require('@apollo/server/express4');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const User = require('./models/User'); // Import the User model
+const jwt = require('jsonwebtoken'); // Import JWT for token generation
+
+const { authMiddleware } = require('./utils/auth');
+
+
+
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -23,6 +31,7 @@ const startApolloServer = async () => {
       app.use(express.json());
   
     app.use('/graphql', expressMiddleware(server, {
+      context: authMiddleware
     }));
   
       db.once('open', () => {

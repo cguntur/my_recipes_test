@@ -6,14 +6,14 @@ const typeDefs = `
   }
 
   type Auth {
-    token: ID!
+    token: String!
     user: User
   }
   
   type Query {
     users: [User]
     user(userId: ID!): User
-    me: User
+    currentUser: User
   }
 
   type Mutation {
