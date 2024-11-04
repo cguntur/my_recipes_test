@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import "../assets/css/Navbar.css";
 
-const menuItems = ["Profile", "Login", "Contact"];
+const menuItems = ["Profile", "Login", "Signup"];
 
 const NavList = () => {
     const [showMenu, setShowMenu] = useState(false);
