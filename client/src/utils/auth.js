@@ -8,7 +8,6 @@ class AuthService {
       }catch(err){
         return null;
       }
-     
     }
   
     loggedIn() {

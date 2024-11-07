@@ -4,11 +4,6 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import Auth from "../utils/auth";
 import "../assets/css/Navbar.css";
 
-const token = Auth.loggedIn() ? Auth.getToken() : null;
-const user = Auth.getProfile();
-console.log("Token: " + token);
-console.log(user);
-
 
 const menuItems = [
     "Profile",
@@ -16,6 +11,13 @@ const menuItems = [
 ];
 
 const NavList = () => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    const user = Auth.getProfile();
+
+    console.log("Token: " + token);
+    console.log(user);
+
+
     const [showMenu, setShowMenu] = useState(false);
     const navigate = useNavigate();
 
@@ -34,7 +36,7 @@ const NavList = () => {
         console.log("Inside handleLogout");
         Auth.logout(); // Log user out
         //alert("You have been logged out.");
-        window.location.assign('/'); // Redirect to home page
+        navigate('/'); // Redirect to home page
         console.log(user);
       };
 
